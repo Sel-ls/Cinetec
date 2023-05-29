@@ -1,0 +1,126 @@
+.nav-link,.btn-outline-light {
+    text-transform: uppercase;
+}
+.nav-link{
+    color: #ff0000;
+    border-radius: 10px;
+    margin: 5px;
+}
+.nav-link:hover {
+    color: #FFFFFF;
+  border-color: #FF0000;
+  background-color: #FF0000;
+  border-radius: 10px;
+}
+.btn-outline-light {
+  color: #FF0000;
+  border-color: #FF0000;
+  margin: 5px;
+}
+.btn-outline-light:hover {
+  color: #FFFFFF;
+  border-color: #FF0000;
+  background-color: #FF0000;
+}
+.botoes {
+  color: #FF0000;
+  border-color: #FF0000;
+  margin: 5px;
+}
+.botoes:hover {
+  color: #FFFFFF;
+  border-color: #FF0000;
+  background-color: #FF0000;
+}
+.col-md-9{
+    width: 30vw; 
+  }
+  .col-md-4 .text-light{
+    text-decoration: none;
+  }
+  .col-md-4 .text-light:hover{
+    color: #FF0000;
+    border:solid 1px #FF0000;
+    border-radius: 35px;
+  }
+  footer .nav-link{
+      color: #FF0000;
+      border-radius: 5px;
+  }
+  footer .nav-link:hover{
+      color: #FFFFFF;
+      border-radius: 5px;
+      border: solid 1px #FF0000;
+  }
+  body{
+    background-color: #FAFAFA;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+  }
+  header{
+    height: 10vh;
+  }
+  main{
+    height: auto;
+    align-items: center;
+    justify-content: center;
+  }
+  footer{
+    height: auto;
+  }
+
+ .col-md-1 img{
+  width: 80%;
+  align-items: center;
+ }
+ .col-md-1.seat a{
+    color: transparent;
+    text-decoration: none;
+ }
+ .col-md-1.seat.unavailable{
+  color: #FAFAFA;
+  border-radius: 50px;
+ }
+  .seat {
+    margin: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .seat.selected {
+    background-color: #ff000045;
+    border-radius: 25px;
+    height: 50px;
+  }
+
+  .seat.unavailable {
+    background-color: #ff000045;
+    cursor: not-allowed;
+  }
+
+.container h1{
+  margin-bottom: 25px;
+  margin-top: 10px;
+  color: #FF0000;
+}
+.container{
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.retangulo{ 
+  border: 7px solid  #FF0000;
+}
+  .screen{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 15px;
+  }
