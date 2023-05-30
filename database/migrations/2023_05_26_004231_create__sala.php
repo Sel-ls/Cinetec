@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('nomeFilm');
             $table->string('qtPolt');
             $table->string('numSala');
-            $table->string('sessao');
             $table->string('statusSala');
         });
     }
