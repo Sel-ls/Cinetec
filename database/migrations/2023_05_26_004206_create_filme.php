@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('filme', function (Blueprint $table) {
+        Schema::create('filmes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('nomeFilme');
@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('dataLancamento');
             $table->longText('sinopseFilme');
             $table->string('capaFilme');
-            $table->string('bannerFilme');
+            $table->string('bannerFilme')->default('');
             $table->string('statusFilme');
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('filme');
+        Schema::dropIfExists('filmes');
     }
 };

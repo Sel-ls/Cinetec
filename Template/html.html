@@ -1,0 +1,66 @@
+<div class="row justify-content-center align-items-center">
+    <div class="col-6">
+        <form method="post" action="{{route('cadastro-filme')}}" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3 form-check">
+                <label for="filmeInput" class="form-label">Filme:</label>
+                <input type="text" name="nomeFilme" class="form-control" id="filmeInput">
+            </div>
+            <div class="mb-3 form-check">
+                <label for="atoresInput" class="form-label">Atores:</label>
+                <input type="text" name="atoresFilme" class="form-control" id="atoresInput">
+            </div>
+            <div class="mb-3 form-check">
+                <label for="dataLancamentoInput" class="form-label">Data de Lançamento:</label>
+                <input type="date" name="dataLancamento" class="form-control" id="dataLancamentoInput">
+            </div>
+            <div class="mb-3 form-check">
+                <label for="sinopseInput" class="form-label">Sinopse:</label>
+                <textarea class="form-control" name="sinopseFilme" id="sinopseInput" rows="3"></textarea>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="mb-3 form-check col">
+                    <label for="capaInput" class="form-label">Capa:</label>
+                    <input class="form-control" name="capaFilme" type="file" id="capaInput">
+                </div>
+                <div class="mb-3 form-check col">
+                    <label for="bannerInput" class="form-label">Banner:</label>
+                    <input class="form-control" name="bannerFilme" type="file" id="bannerInput">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3 mx-2">
+                        <label class="input-group-text" for="inputGroupSelect01">Status</label>
+                        <select class="form-select bs-danger-text-emphasis" name="statusFilme"
+                            aria-label="Default select example" id="inputGroupSelect01">
+                            <option selected value="1">Em cartaz</option>
+                            <option value="2">Em breve</option>
+                            <option value="3">Fora de exibição</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+</div>
+<script>
+    const imgMeme = document.querySelector('#meme-image');
+    const memeInput = document.querySelector('#meme-insert');
+    memeInput.addEventListener('change', function (evt) {
+        if (!(evt.target && evt.target.files && evt.target.files.length > 0)) {
+            return;
+        }
+
+        // Inicia o file-reader:
+        var r = new FileReader();
+        // Define o que ocorre quando concluir:
+        r.onload = function () {
+            // Define o `src` do elemento para o resultado:
+            imgMeme.src = r.result;
+            // Lê o arquivo e cria um link (o resultado vai ser enviado para o onload.
+            r.readAsDataURL(evt.target.files[0]);
+        }
+    });
+</script>
