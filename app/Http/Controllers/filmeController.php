@@ -52,7 +52,7 @@ class filmeController extends Controller
     public function MostrarFilme(Request $request){
         // $dadosfuncionarios = Funcionario::all();
         // dd($dadosfuncionarios);
-        $dadosFilmes = Filme::query()->where('statusFilme', 'like', '%' . 1 . '%');
+        $dadosFilmes = Filme::query()->where('statusFilme', 'like', '%' . 'Em breve' . '%');
         // $dadosFilmes->when($request->nomeFilme,function($query, $nomefilme){
         //     $query->where('nomeFilme', 'like', '%' . $nomefilme . '%');
         // });

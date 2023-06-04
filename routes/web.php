@@ -30,7 +30,7 @@ Route::put('/gerenciar-filme/{registroFilme}',[filmeController::class,'AlterarBa
 
 /*Sala*/
 Route::get('/cadastro-salasessao', [SalaSessaoController::class,'buscaCadastroSala'])->name('buscar-cadastro-salasessao');
-Route::post('/cadastro-sala', [SalaSessaoController::class,'cadastrarSala'])->name('cadastro-salasessao');
+Route::post('/cadastro-salasessao', [SalaSessaoController::class,'cadastrarSala'])->name('cadastro-salasessao');
 
 Route::get('/gerenciar-sala', [SalaSessaoController::class,'MostrarGerenciadorSala'])->name('gerenciar-sala');
 Route::delete('/gerenciar-sala/{registroSala}',[SalaSessaoController::class,'ApagarSala'])->name('apagar-sala');

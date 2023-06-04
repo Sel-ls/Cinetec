@@ -9,7 +9,7 @@ class Sala extends Model
 {
     use HasFactory;
     protected $fillable = [ 
-        'nomeFilm', 'qtPolt', 'numSala', 'sessao', 'statusSala'
+        'nomeFilme', 'qtPolt', 'numSala', 'sessao', 'statusSala'
     ];
 }
 

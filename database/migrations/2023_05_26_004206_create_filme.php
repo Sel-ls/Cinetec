@@ -20,7 +20,7 @@ return new class extends Migration
             $table->longText('sinopseFilme');
             $table->string('capaFilme');
             $table->string('bannerFilme')->default('');
-            $table->string('statusFilme');
+            $table->string('statusFilme')->default('Em breve');
         });
     }
 

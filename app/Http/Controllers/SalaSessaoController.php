@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Models\Sala;
+use App\Models\Sessao;
 use App\Models\Poltrona;
 use App\Models\Filme;
 
@@ -15,23 +16,73 @@ class SalaSessaoController extends Controller
         $dadosFilmes = $dadosFilmes->get();
         return View('cadastroSalaSessao',['dadosfilme'=>$dadosFilmes]);
     }
-
-    public function buscaCadastroPoltrona(){
-        return View('cadastroSalaPoltrona');
-    }
-
+    
     public function cadastrarSala(Request $request){
-        $dadossalas = $request->validate(
-        [
-            'nomeFilm' => 'string|required',
+        $dadosSalas = $request->validate([
+            'nomeFilme' => 'string|required',
             'qtPolt' => 'string|required',
             'numSala' => 'string|required',
-            'sessao' => 'string|required',
-        ]
-    );
+        ]);
+        Sala::create($dadosSalas);
+        
+        $dadosSessao = $request->validate([
+            'numSala' => 'string|required',
+            'nomeFilme' => 'string|required',
+            'timeSessao' => 'string|required',
+            'dateSessao' => 'string|required',
+        ]);
+        Sessao::create($dadosSessao);
 
-    Sala::create($dadossalas);
-    return Redirect::route('cadastro-sala', ['$dadossalas']);
+        $col = ['1','2','3','4','5','6','7','8','9','10','11','12'];
+        $fila = ['a','b','c','d','e','f','g','h','i','j'];
+        if($request->qtPolt == 100){
+            for ($c=0; $c < 10 ; $c++) {
+                for ($f=0; $f < 10 ; $f++) {
+
+                    $dadosPoltronas = $request->validate([
+                        'numSala' => 'string|required',
+                    ]);
+                    $dadosPoltronas = $dadosPoltronas + [
+                        'posicaoPolt' => $col[$c] . $fila[$f],
+                        'statusPolt' => 'À venda',
+                        'sessao' => $request->dateSessao . ' | ' . $request->timeSessao,
+                    ];
+                    Poltrona::create($dadosPoltronas);
+                }
+            }
+        }else if($request->qtPolt == 96){
+            for ($c=0; $c < 12 ; $c++) {
+                for ($f=0; $f < 8 ; $f++) {
+
+                    $dadosPoltronas = $request->validate([
+                        'numSala' => 'string|required',
+                    ]);
+                    $dadosPoltronas = $dadosPoltronas + [
+                        'posicaoPolt' => $col[$c] . $fila[$f],
+                        'statusPolt' => 'À venda',
+                        'sessao' => $request->dateSessao . ' | ' . $request->timeSessao,
+                    ];
+                    Poltrona::create($dadosPoltronas);
+                }
+            }
+        }else if($request->qtPolt == 80){
+            for ($c=0; $c < 8 ; $c++) {
+                for ($f=0; $f < 10 ; $f++) {
+
+                    $dadosPoltronas = $request->validate([
+                        'numSala' => 'string|required',
+                    ]);
+                    $dadosPoltronas = $dadosPoltronas + [
+                        'posicaoPolt' => $col[$c] . $fila[$f],
+                        'statusPolt' => 'À venda',
+                        'sessao' => $request->dateSessao . ' | ' . $request->timeSessao,
+                    ];
+                    Poltrona::create($dadosPoltronas);
+                }
+            }
+        }
+
+        return Redirect::route('cadastro-filme');
     }
 
     public function cadastrarPoltrona(Request $request){

@@ -39,19 +39,19 @@
                 </div>
             </div>
                 <hr/>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col ms-4">
                     <div class="input-group mb-3 mx-1">
                         <label class="input-group-text" for="inputGroupSelect01">Status</label>
                         <select class="form-select bs-danger-text-emphasis" name="statusFilme"
                             aria-label="Default select example" id="inputGroupSelect01">
-                            <option selected value="1">Em cartaz</option>
-                            <option value="2">Em breve</option>
+                            <option selected value="1">Em breve</option>
+                            <option value="2">Em cartaz</option>
                             <option value="3">Fora de exibição</option>
                         </select>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <button type="submit" class="btn btn-primary">Salvar</button>
         </form>
     </div>

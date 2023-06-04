@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sessao', function (Blueprint $table) {
+        Schema::create('sessaos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('numSala');
             $table->string('nomeFilme');
             $table->string('timeSessao');
             $table->string('dateSessao');
-            $table->string('statusSessao');
+            $table->string('statusSessao')->default('Aberta');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sessao');
+        Schema::dropIfExists('sessaos');
     }
 };

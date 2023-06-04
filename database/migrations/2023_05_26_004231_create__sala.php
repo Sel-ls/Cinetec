@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('_sala', function (Blueprint $table) {
+        Schema::create('salas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('nomeFilme');
             $table->string('qtPolt');
             $table->string('numSala');
-            $table->string('statusSala');
+            $table->string('statusSala')->default('ativa');
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('_sala');
+        Schema::dropIfExists('salas');
     }
 };

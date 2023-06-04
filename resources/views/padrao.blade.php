@@ -12,7 +12,7 @@
   <link rel="icon" href="./img/cadeira.png" type="image/x-icon">
 </head>
 <body style="height: 100vh">
-  <header>
+  <header class="mb-5">
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #FAFAFA;">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -65,7 +65,7 @@
 
     @yield('content')
 
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top position-relative bottom-0"
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-4 mt-4 border-top position-static bottom-0"
     style="background-color: #F5F5F5;">
     <p class="col-md-4 mb-0" style="color: #ff0000;">&copy; 2023 CineTec, Inc</p>
     <a href="#"
