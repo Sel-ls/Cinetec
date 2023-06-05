@@ -19,17 +19,18 @@ use App\Http\Controllers\filmeController;
 Route::get('/', function () {
     return view('inicio');
 });
+Route::get('/', [filmeController::class,'MostrarFilme'])->name('mostrar-filme');
 
 /*Filme*/
 Route::get('/cadastro-filme', [filmeController::class,'buscaCadastroFilme'])->name('buscar-cadastro-filme');
 Route::post('/cadastro-filme', [filmeController::class,'CadastrarFilme'])->name('cadastro-filme');
 
-Route::get('/', [filmeController::class,'MostrarFilme'])->name('mostrar-filme');
 Route::delete('/gerenciar-filme/{registroFilme}',[filmeController::class,'ApagarFilme'])->name('apagar-filme');
 Route::put('/gerenciar-filme/{registroFilme}',[filmeController::class,'AlterarBancoFilme'])->name('alterar-banco-filme');
 
 /*Sala*/
 Route::get('/cadastro-salasessao', [SalaSessaoController::class,'buscaCadastroSala'])->name('buscar-cadastro-salasessao');
+Route::get('/buscar-sala/{nomefilme}', [SalaSessaoController::class,'buscaSala'])->name('buscar-salasessao');
 Route::post('/cadastro-salasessao', [SalaSessaoController::class,'cadastrarSala'])->name('cadastro-salasessao');
 
 Route::get('/gerenciar-sala', [SalaSessaoController::class,'MostrarGerenciadorSala'])->name('gerenciar-sala');

@@ -15,6 +15,11 @@ class SalaSessaoController extends Controller
         $dadosFilmes = Filme::query();
         $dadosFilmes = $dadosFilmes->get();
         return View('cadastroSalaSessao',['dadosfilme'=>$dadosFilmes]);
+    }    
+    public function buscaSala(Filme $nomefilme){
+        $dadosSalas = Sala::query()->where('nomeFilme', 'like', '%' . $nomefilme . '%');
+        $dadosSalas = $dadosSalas->get();
+        return View('sala',['dadossala'=>$dadosSalas]);
     }
     
     public function cadastrarSala(Request $request){

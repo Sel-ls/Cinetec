@@ -43,7 +43,12 @@
             <div class="card-body">
               <h5 class="card-title">{{$dadosfilmes->nomeFilme}}</h5>
               <p class="card-text">{{$dadosfilmes->sinopseFilme}}</p>
-              <a href="./sessao.html?film=Luca" class="btn ">Escolher lugar</a>
+              <a href="{{url('/buscar-sala',$dadosfilmes->nomeFilme)}}" class="btn ">Escolher lugar</a>
+              <form method="post" action="{{route('apagar-funcionario',$dadosfuncionarios->id)}}">
+                @method('put')
+                @csrf
+                <button type="submit" class="btn btn-danger">Excluir</button>
+              </form>
             </div>
           </div>
         </div>
