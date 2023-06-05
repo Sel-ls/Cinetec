@@ -46,7 +46,7 @@ class filmeController extends Controller
         $dadosFilmes['capaFilme'] = $path;
         Filme::create($dadosFilmes);
 
-        return Redirect::route('cadastro-filme');
+        return Redirect::route('buscar-cadastro-salasessao');
     }
 
     public function MostrarFilme(Request $request){

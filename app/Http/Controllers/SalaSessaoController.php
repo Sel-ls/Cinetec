@@ -15,11 +15,16 @@ class SalaSessaoController extends Controller
         $dadosFilmes = Filme::query();
         $dadosFilmes = $dadosFilmes->get();
         return View('cadastroSalaSessao',['dadosfilme'=>$dadosFilmes]);
-    }    
-    public function buscaSala(Filme $nomefilme){
-        $dadosSalas = Sala::query()->where('nomeFilme', 'like', '%' . $nomefilme . '%');
+    }
+
+    public function buscaSala(Filme $nomefilme,Request $request){
+        $dadosSalas = Sala::query()->where('nomeFilme', 'like', '%' . $request->nomeFilme . '%');
         $dadosSalas = $dadosSalas->get();
-        return View('sala',['dadossala'=>$dadosSalas]);
+        $dadosSessao = Sessao::query()->where('nomeFilme', 'like', '%' . $request->nomeFilme . '%');
+        $dadosSessao = $dadosSessao->get();
+        $dadosPoltrona = Poltrona::query();
+        $dadosPoltrona = $dadosPoltrona->get();
+        return View('sala',['dadossala'=>$dadosSalas,'dadossessao'=>$dadosSessao,'dadospolt'=>$dadosPoltrona]);
     }
     
     public function cadastrarSala(Request $request){
@@ -28,7 +33,6 @@ class SalaSessaoController extends Controller
             'qtPolt' => 'string|required',
             'numSala' => 'string|required',
         ]);
-        Sala::create($dadosSalas);
         
         $dadosSessao = $request->validate([
             'numSala' => 'string|required',
@@ -36,6 +40,7 @@ class SalaSessaoController extends Controller
             'timeSessao' => 'string|required',
             'dateSessao' => 'string|required',
         ]);
+        Sala::create($dadosSalas);
         Sessao::create($dadosSessao);
 
         $col = ['1','2','3','4','5','6','7','8','9','10','11','12'];
@@ -86,7 +91,6 @@ class SalaSessaoController extends Controller
                 }
             }
         }
-
         return Redirect::route('cadastro-filme');
     }
 
